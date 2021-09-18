@@ -15,6 +15,8 @@ class InitSeed extends AbstractSeed
      */
     public function run()
     {
+        $users = $this->table('users');
+        $users->truncate();
         $data = [
             [
                 'email'    => 'admin@gmail.com',
@@ -30,7 +32,6 @@ class InitSeed extends AbstractSeed
             ]
         ];
 
-        $users = $this->table('users');
         $users->insert($data)
             ->saveData();
     }
